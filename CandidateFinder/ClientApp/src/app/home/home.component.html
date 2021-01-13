@@ -1,0 +1,47 @@
+<div>
+  <table>
+    <tr>
+      <th style="width:15%;">
+        <label class="tableText">Job</label>
+      </th>
+      <th style="width:10%;">
+        <label class="tableText">Company</label>
+      </th>
+      <th style="width:35%;">
+        <label class="tableText">Required Skills</label>
+      </th>
+      <th style="width:40%;">
+        <label class="tableText">Best Candidate</label>
+      </th>
+    </tr>
+    <tr *ngIf="matchedJobs == null || matchedJobs == undefined">
+      <td colspan="4">
+        <label class="tableText">Loading Data ...</label>
+      </td>
+    </tr>
+    <tr *ngIf="matchedJobs != null && matchedJobs != undefined && matchedJobs.length == 0">
+      <td colspan="4">
+        <label class="tableText">No Job available</label>
+      </td>
+    </tr>
+    <tr *ngFor="let job of matchedJobs | slice: startIndex():endIndex()">
+      <td style="width:15%;">
+        <label class="tableText">{{job.name}}</label>
+      </td>
+      <td style="width:10%;">
+        <label class="tableText">{{job.company}}</label>
+      </td>
+      <td style="width:35%;">
+        <label class="tableText">{{job.skills}}</label>
+      </td>
+      <td style="width:40%;">
+        <label class="tableText">name: {{job.candidate.name}}</label>
+        <label class="tableText">skills: {{job.candidate.skillTags}}</label>
+      </td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="matchedJobs != null && matchedJobs != undefined && matchedJobs.length > pageCount">
+  <input id="pageUp" class="button" type="button" value="Prev" (click)="Up();">
+  <input id="pageDown" class="button" type="button" value="Next" (click)="Down();">
+</div>
