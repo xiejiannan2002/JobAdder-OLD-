@@ -3,7 +3,6 @@ table {
   border: 1px solid;
   border-collapse: collapse;
   border-color: rgb(127,127,127);
-  background-color: rgb(255,255,255);
   text-align: center;
 }
 
@@ -11,7 +10,6 @@ th {
   border: 1px solid;
   border-collapse: collapse;
   border-color: rgb(127,127,127);
-  text-align: left;
   background-color: rgb(203,203,203);
 }
 

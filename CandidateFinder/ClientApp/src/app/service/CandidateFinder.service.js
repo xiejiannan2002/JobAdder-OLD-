@@ -33,7 +33,7 @@ var CandidateFinderService = /** @class */ (function () {
         candidates.forEach(function (candidate) {
             var haveSkills = candidate.skillTags.trim().split(',');
             var count = requiredSkills.filter(function (element) { return haveSkills.includes(element); }).length;
-            if (count > matchedSkills) {
+            if ((count > matchedSkills) || (count == matchedSkills && best != null && best.skillTags.trim().split(',').length < haveSkills.length)) {
                 matchedSkills = count;
                 best = candidate;
             }

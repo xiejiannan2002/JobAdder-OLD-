@@ -38,7 +38,7 @@ export class CandidateFinderService {
     candidates.forEach(candidate => {
       let haveSkills: string[] = candidate.skillTags.trim().split(',');
       let count: number = requiredSkills.filter(element => haveSkills.includes(element)).length;
-      if (count > matchedSkills) {
+      if ((count > matchedSkills) || (count == matchedSkills && best != null && best.skillTags.trim().split(',').length < haveSkills.length)) {
         matchedSkills = count;
         best = candidate;
       }
